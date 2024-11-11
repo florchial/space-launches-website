@@ -13,6 +13,7 @@ export type ApiResponse = {
 };
 
 export type Launch = {
+    id:                    string;
     fairings:              Fairings;
     static_fire_date_utc:  Date;
     static_fire_date_unix: number;
@@ -38,8 +39,17 @@ export type Launch = {
     auto_update:           boolean;
     tbd:                   boolean;
     launch_library_id:     null;
-    id:                    string;
+    links:                 Links;
 };
+
+export type Links = {
+    patch: Patch;
+}
+
+export type Patch = {
+    small: string;
+    large: string;
+}
 
 export type Core = {
     core:            string;
