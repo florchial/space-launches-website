@@ -7,7 +7,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@contracts/*": ["src/types/*"]
+      "@contracts/*": ["src/domain/*"]
     }
   },
   "include": ["src"]
