@@ -1,4 +1,4 @@
-import { type ApiResponse } from "@contracts/launch";
+import { type ApiResponse, type Launch } from "@contracts/launch";
 
 export const getLaunches = async () => {
     const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
@@ -19,4 +19,10 @@ export const getLaunches = async () => {
 
     const { docs: launches } = (await res.json()) as ApiResponse
     return launches
+}
+
+export const getLaunchBy = async ({ id }: { id: string }) => {
+    const res = await fetch("https://api.spacexdata.com/v5/launches/" + id)
+    const launch = (await res.json()) as Launch
+    return launch
 }
