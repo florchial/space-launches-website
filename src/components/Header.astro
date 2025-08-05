@@ -1,5 +1,4 @@
 ---
-import { Counter } from "./Counter";
 import HeaderButton from "./HeaderButton.astro";
 ---
 <header transition:persist class="py-8 px-4 mx-auto max-w-xl lg:py-16 lg:px-6">
@@ -11,15 +10,16 @@ import HeaderButton from "./HeaderButton.astro";
             All the information about SpaceX Launches
         </p>
     </div>
-    <Counter client:visible/>
+   
     <nav class="flex flex-col items-center justify-between w-full text-center md:flex-row">
         <HeaderButton href="/">
-            <svg class="inline" slot="before" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" /></svg>
-            Next Launches
-        </HeaderButton>
-        <HeaderButton href="/oldest">
             <svg class="inline" slot="before" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 5v14l-8 -7z" /><path d="M10 5v14l-8 -7z" /></svg>
-            Previous Launches</HeaderButton>
+                Previous Launches
+        </HeaderButton>
+        <HeaderButton href="/upcoming">
+            <svg class="inline" slot="before" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" /></svg>
+            Upcoming Launch
+        </HeaderButton>
         <HeaderButton href="/about">
             <svg class="inline" slot="before" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9h.01" /><path d="M11 12h1v4h1" /><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z" /></svg>
             About the project
