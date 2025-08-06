@@ -1,6 +1,7 @@
 ---
 import type { Launch } from '@contracts/launch';
 import { image } from '@contracts/launch';
+import LaunchResultTag from './LaunchResultTag.astro';
 
 interface Props {
     launch: Launch
@@ -21,6 +22,7 @@ hover:scale-105 hover:bg-gray-700 hover:border-gray-500 transition flex flex-col
         <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
             Flight #{launch.flight_number}
         </h2>
+        <LaunchResultTag launch={launch}></LaunchResultTag>
         <p class="mb-4 font-light text-gray-400">
             {launch.details?.length > 100 ? launch.details.slice(0, 100) + "..." : launch.details}
         </p> 
