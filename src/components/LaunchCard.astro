@@ -15,19 +15,21 @@ const { launch } = Astro.props;
   class="rounded-lg border shadow-md bg-gray-800 border-gray-700
 hover:scale-105 hover:bg-gray-700 hover:border-gray-500 transition flex flex-col"
 >
-  <picture class="flex justify-center p-4">
+  <picture class="flex justify-center items-center p-4">
     <img
-      class="mb-5 rounded-lg"
+      class="rounded-lg w-25"
       src={image(launch)}
       alt={`Patch for launch ${launch.id}`}
     />
   </picture>
   <header class="p-4 flex-grow">
-    <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
-      Flight #{launch.flight_number}
+    <div class="flex items-center gap-4 flex-wrap mb-2">
+    <h2 class="text-lg font-bold tracking-tight text-white">
+      {launch.name} - Flight #{launch.flight_number}
     </h2>
-    <LaunchResultTag launch={launch} />
-    <p class="mb-4 text-gray-400">
+    <LaunchResultTag launch={launch}/>
+  </div>
+    <p class="mb-4 text-base text-gray-300">
       {
         launch.details?.length > 100
           ? launch.details.slice(0, 100) + "..."

@@ -44,6 +44,8 @@ export type Launch = {
 
 export type Links = {
   patch: Patch;
+  webcast: string;
+  article: string;
 };
 
 export type Patch = {
