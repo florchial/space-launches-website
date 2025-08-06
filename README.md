@@ -13,10 +13,10 @@ It's a great example to explore modern technologies, API consumption, and clean,
 
 ## 🛠️ Technologies Used
 
-- Astro (Static Site Generator)
-- Tailwind CSS (Styling)
-- TypeScript / JavaScript
-- SpaceX Public API for live launch data
+- [Astro](https://astro.build/) - Static Site Generator
+- [TailwindCSS](https://tailwindcss.com/) - Styling
+- [TypeScript](https://www.typescriptlang.org/)
+- [SpaceX Public API for live launch data](https://github.com/r-spacex/SpaceX-API)
 
 ---
 
@@ -68,4 +68,4 @@ MIT License © 2025 florchial
 ---
 
 ## 📫 Contact
-Find the source code and more info on my GitHub.
+Find the source code and more info on my [GitHub](https://github.com/florchial).
