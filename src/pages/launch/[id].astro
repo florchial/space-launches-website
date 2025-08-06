@@ -1,9 +1,8 @@
 ---
-import LaunchResultTag from "src/components/LaunchResultTag.astro";
+import LaunchDetail from "src/components/LaunchDetail.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getLaunchBy, getLaunches } from "../../services/launches";
-import { image, date } from "@contracts/launch";
-import HeaderButton from "src/components/HeaderButton.astro";
+
 
 const { id } = Astro.params;
 
@@ -23,32 +22,8 @@ export async function getStaticPaths() {
 
 {
   launch && (
-    <Layout title={`Launch ${id}`}>
-      <article class="flex flex-col items-center lg:flex-row gap-6 max-w-3xl mx-auto p-6">
-        <div class="w-full lg:w-1/3 flex justify-center mb-4 lg:mb-0">
-          <img class="w-40 lg:w-52 h-auto" src={image(launch)} alt={launch.name} />
-        </div>
-        <div class="w-full lg:w-2/3 flex flex-col gap-4 py-2">
-        <div class="flex items-center gap-4 flex-wrap mb-2">
-          <h2 class="text-2xl text-white font-bold">
-            {launch.name} - Flight #{launch.flight_number}
-          </h2>
-          <LaunchResultTag launch={launch}/>
-        </div>
-        <p class="mb-2 text-base text-gray-400">
-            {date(launch)}
-         </p>
-          <p class="text-base text-gray-300">{launch.details}</p>
-          <div class="flex gap-4 mt-6 items-end">
-            <HeaderButton href={launch.links.webcast}>
-                <svg class="inline" slot="before" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
-            Watch video</HeaderButton>
-            <HeaderButton href={launch.links.article}>
-                <svg class="inline" slot="before" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-planet"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18.816 13.58c2.292 2.138 3.546 4 3.092 4.9c-.745 1.46 -5.783 -.259 -11.255 -3.838c-5.47 -3.579 -9.304 -7.664 -8.56 -9.123c.464 -.91 2.926 -.444 5.803 .805" /><path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /></svg>
-            Learn more</HeaderButton>
-        </div>
-        </div>
-      </article>
+    <Layout title={`Launch ${launch.flight_number}`}>
+      <LaunchDetail launch={launch}/>
     </Layout>
   )
 }

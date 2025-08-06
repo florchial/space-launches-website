@@ -1,0 +1,13 @@
+---
+import LaunchDetail from "src/components/LaunchDetail.astro";
+import Layout from "src/layouts/Layout.astro";
+import { getLatestLaunch } from "src/services/launches";
+
+let launch = await getLatestLaunch();
+---
+{
+launch && (
+<Layout title="Latest launch">
+    <LaunchDetail launch={launch}/>
+</Layout>)
+}

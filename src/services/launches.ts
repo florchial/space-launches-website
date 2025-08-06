@@ -27,4 +27,9 @@ export const getLaunchBy = async ({ id }: { id: string }) => {
   return launch;
 };
 
+export const getLatestLaunch = async () => {
+  const res = await fetch("https://api.spacexdata.com/v5/launches/latest");
+  const launch = (await res.json()) as Launch;
+  return launch;
+};
 
