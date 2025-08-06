@@ -79,11 +79,22 @@ export type Fairings = {
 };
 
 export const launchResult = (launch: Launch) => {
-    return launch.success ? "Success" : "Failure";
+  return launch.success ? "Success" : "Failure";
 };
 
 export const image = (launch: Launch) => {
-    return launch.links.patch.small;
+  return launch.links.patch.small;
 };
 
-
+export const date = (launch: Launch) => {
+  const date = new Date(launch.date_local);
+  const formatted = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short", // o "short" o "2-digit"
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZoneName: "short", // opcional
+  }).format(date);
+  return formatted;
+};
