@@ -1,29 +1,40 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLaunchBy } from "../../services/launches";
-import { getLaunches } from "../../services/launches";
+import { getLaunchBy, getLaunches } from "../../services/launches";
+import { image } from "@contracts/launch";
 
 const { id } = Astro.params;
 
 let launch;
+
 if (id) {
-    launch = await getLaunchBy({ id });
+  launch = await getLaunchBy({ id });
 }
 
 export async function getStaticPaths() {
-    const launches = await getLaunches();
-    return launches.map((launch) => ({
-        params: { id: launch.id },
-    }));
+  const launches = await getLaunches();
+  return launches.map((launch) => ({
+    params: { id: launch.id },
+  }));
 }
 ---
-
+{launch &&
 <Layout title={`Launch ${id}`}>
-    <article class="flex gap-y-4 flex-col">
-        <img class="w-52 h-auto" src={launch?.links?.patch.small} alt={launch?.name} />
-        <h2 class="text-4xl text-white font-bold">
-            Launch #{launch?.flight_number}
-        </h2>
-        <p class="text-lg ">{launch?.details}</p>
-    </article>
+  <article class="flex flex-row items-start">
+    <div class="w-1/3 flex justify-center">
+      <img
+        class="w-52 h-auto"
+        src={image(launch)}
+        alt={launch.name}
+      />
+    </div>
+    <div class="w-2/3 flex flex-col gap-3">
+      <h2 class="text-3xl text-white font-bold">
+        Flight #{launch.flight_number} 
+      </h2>
+      
+      <p class="text-lg text-gray-400">{launch.details}</p>
+    </div>
+  </article>
 </Layout>
+}
