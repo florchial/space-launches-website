@@ -90,11 +90,11 @@ export const date = (launch: Launch) => {
   const date = new Date(launch.date_local);
   const formatted = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
-    month: "short", // o "short" o "2-digit"
+    month: "short", 
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    timeZoneName: "short", // opcional
+    timeZoneName: "short", 
   }).format(date);
   return formatted;
 };
